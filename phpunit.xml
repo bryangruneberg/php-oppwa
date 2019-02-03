@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false">
+    <testsuites>
+        <testsuite name="OPPWAIntegration">
+            <directory suffix="Test.php">./tests/OPPWAIntegration</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <env name="OPPWA_USER_ID" value="8a8294174e735d0c014e78cf266b1794" />
+        <env name="OPPWA_PASSWORD" value="qyyfHCN83e" />
+        <env name="OPPWA_ENTITY_ID" value="8a8294174e735d0c014e78cf26461790" />
+        <env name="OPPWA_URL" value="https://test.oppwa.com/" />
+    </php>
+</phpunit>
