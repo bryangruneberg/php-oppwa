@@ -3,8 +3,8 @@
 namespace Bryangruneberg\OPPWA;
 
 use GuzzleHttp\Client;
-use Bryangruneberg\OPPWA\Traits\PerformsGET;
-use Bryangruneberg\OPPWA\Traits\PerformsPOST;
+use Bryangruneberg\OPPWA\Traits\Client\PerformsGET;
+use Bryangruneberg\OPPWA\Traits\Client\PerformsPOST;
 
 class OPPWAClient
 {

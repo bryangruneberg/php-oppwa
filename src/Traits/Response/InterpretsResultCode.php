@@ -1,6 +1,6 @@
 <?php
 
-namespace Bryangruneberg\OPPWA\Traits;
+namespace Bryangruneberg\OPPWA\Traits\Response;
 
 trait InterpretsResultCode 
 {
@@ -22,6 +22,8 @@ trait InterpretsResultCode
         
         $file = __DIR__ 
             . DIRECTORY_SEPARATOR  
+            . ".."
+            . DIRECTORY_SEPARATOR 
             . ".."
             . DIRECTORY_SEPARATOR 
             . ".."

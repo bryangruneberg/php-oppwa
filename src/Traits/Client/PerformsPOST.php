@@ -1,6 +1,6 @@
 <?php
 
-namespace Bryangruneberg\OPPWA\Traits;
+namespace Bryangruneberg\OPPWA\Traits\Client;
 
 use Bryangruneberg\OPPWA\OPPWAResponse;
 

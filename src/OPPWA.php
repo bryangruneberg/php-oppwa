@@ -6,11 +6,13 @@ use Bryangruneberg\OPPWA\Traits\InteractsWithCheckout;
 use Bryangruneberg\OPPWA\Traits\InteractsWithPayment;
 use Bryangruneberg\OPPWA\Traits\InteractsWithRegister;
 use Bryangruneberg\OPPWA\Traits\InteractsWithCopyAndPay;
+use Bryangruneberg\OPPWA\Traits\InteractsWith3DSecure;
 
 class OPPWA 
 {
     use InteractsWithCheckout, InteractsWithPayment, 
-        InteractsWithRegister, InteractsWithCopyAndPay;
+        InteractsWithRegister, InteractsWithCopyAndPay,
+        InteractsWith3DSecure;
     
     protected $client;
     
@@ -18,6 +20,7 @@ class OPPWA
     const URL_PAYMENTS = '/v1/payments';
     const URL_REGISTRATIONS = '/v1/registrations';
     const URL_PAYMENTWIDGET = '/v1/paymentWidget.js';
+    const URL_3DSECURE = '/v1/threeDSecure';
     
     
     const PAYMENT_TYPE_PREAUTH = 'PA';
@@ -29,6 +32,12 @@ class OPPWA
     
     const RECURRING_TYPE_INITIAL = 'INITIAL';
     const RECURRING_TYPE_REPEATED = 'REPEATED';
+    
+    const PAYMENT_BRAND_VISA = 'VISA';
+    const PAYMENT_BRAND_MASTERCARD = 'MASTER';
+    const PAYMENT_BRAND_AMEX = 'AMEX';
+    const PAYMENT_BRAND_DINERSCLUB = 'DINERS';
+
     
     public function setClient(OPPWAClient $client)
     {

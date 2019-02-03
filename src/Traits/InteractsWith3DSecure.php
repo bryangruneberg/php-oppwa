@@ -1,33 +1,31 @@
 <?php
 
 namespace Bryangruneberg\OPPWA\Traits;
-
 use Bryangruneberg\OPPWA\OPPWA;
 use Bryangruneberg\OPPWA\OPPWACard;
 
-trait InteractsWithPayment
+trait InteractsWith3DSecure
 {
-    public function getPaymentStatus($checkoutId)
+   public function get3DSecureStatus($transactionId)
     {
-        $url = OPPWA::URL_CHECKOUTS . '/' . $checkoutId . '/payment';
+        $url = OPPWA::URL_3DSECURE . '/' . $transactionId;
         $response = $this->getClient()->doGet($url);
-        
         return $response;
     }
     
-    public function payUsingOPPWACard($amount, $currency, $paymentType, OPPWACard $card, array $options = [])
+    public function requestUsingOPPWACard($amount, $currency, $redirectURL, OPPWACard $card, array $options = [])
     {
         $baseOptions = [
             'amount' => $amount,
             'currency' => $currency,
-            'paymentType' => $paymentType
+            'shopperResultUrl' => $redirectURL
         ];
         
         $baseOptions = array_merge($baseOptions, $card->getArray());
 
         $sendOptions = array_merge($baseOptions, $options);
 
-        $response = $this->getClient()->doPost(OPPWA::URL_PAYMENTS, $sendOptions);
+        $response = $this->getClient()->doPost(OPPWA::URL_3DSECURE, $sendOptions);
         
         return $response;
     }

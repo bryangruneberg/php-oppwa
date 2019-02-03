@@ -3,8 +3,8 @@
 namespace Bryangruneberg\OPPWA;
 
 use GuzzleHttp\Psr7\Response;
-use Bryangruneberg\OPPWA\Traits\InterpretsResultCode;
-use Bryangruneberg\OPPWA\OPPWAException;
+use Bryangruneberg\OPPWA\Traits\Response\InterpretsResultCode;
+use Bryangruneberg\OPPWA\Exceptions\OPPWAException;
 
 class OPPWAResponse
 {

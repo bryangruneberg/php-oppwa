@@ -2,11 +2,6 @@
 
 namespace Bryangruneberg\OPPWA;
 
-use Bryangruneberg\OPPWA\Traits\InteractsWithCheckout;
-use Bryangruneberg\OPPWA\Traits\InteractsWithPayment;
-use Bryangruneberg\OPPWA\Traits\InteractsWithRegister;
-use Bryangruneberg\OPPWA\Traits\InteractsWithCopyAndPay;
-
 class OPPWACard
 {
     protected $number;
@@ -14,6 +9,18 @@ class OPPWACard
     protected $expiryMonth;
     protected $expiryYear;
     protected $cvv;
+    
+    public function getArray()
+    {
+        return [
+            'card.number' => $this->getNumber(),
+            'card.holder' => $this->getHolder(),
+            'card.expiryMonth' => $this->getExpiryMonth(),
+            'card.expiryYear' => $this->getExpiryYear(),
+            'card.cvv' => $this->getCVV(),
+            'paymentBrand' => $this->getBrand()
+        ];
+    }
     
     public function setNumber($number)
     {
@@ -65,7 +72,7 @@ class OPPWACard
         return $this;
     }
     
-    public function getCVV($cvv)
+    public function getCVV()
     {
         return $this->cvv;
     }
@@ -79,5 +86,10 @@ class OPPWACard
     public function getBrand()
     {
         return $this->brand;
+    }
+    
+    public function getLast4Digits()
+    {
+        return substr($this->number, -4);
     }
 }
