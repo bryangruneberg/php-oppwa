@@ -19,7 +19,7 @@ class OPPWA
     const URL_CHECKOUTS = '/v1/checkouts';
     const URL_PAYMENTS = '/v1/payments';
     const URL_REGISTRATIONS = '/v1/registrations';
-    const URL_PAYMENTWIDGET = '/v1/paymentWidget.js';
+    const URL_PAYMENTWIDGET = '/v1/paymentWidgets.js';
     const URL_3DSECURE = '/v1/threeDSecure';
     
     
