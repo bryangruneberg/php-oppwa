@@ -27,4 +27,11 @@ trait InteractsWithCheckout
     {
         return $response->getResultCode() === OPPWAResponseCode::CREATED_CHECKOUT;
     }
+    
+    public function getCheckoutRegistration($checkoutId)
+    {
+        $url = OPPWA::URL_CHECKOUTS . '/' . $checkoutId . '/registration';
+        $response = $this->getClient()->doGet($url);
+        return $response;
+    }
 }

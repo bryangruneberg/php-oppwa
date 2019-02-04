@@ -27,5 +27,7 @@ class InteractsWithCheckoutTest extends TestCase
 		$checkoutResponse = $api->prepareCheckout(10, 'ZAR', OPPWA::PAYMENT_TYPE_DEBIT, $recurringOptions);
 		$this->assertTrue($api->isPrepareCheckoutSuccess($checkoutResponse), 'The checkout returned ' . $checkoutResponse->getResultCode() . ' instead of ' . OPPWAResponseCode::CREATED_CHECKOUT);
 		$this->assertGreaterThanOrEqual(1, strlen($checkoutResponse->getId()));
+
+		$registerResponse = $api->getCheckoutRegistration($checkoutResponse->getId());
 	}
 }
